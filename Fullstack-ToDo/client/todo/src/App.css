@@ -1,0 +1,73 @@
+.app {
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: center;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.addtask {
+  margin-bottom: 20px;
+}
+
+.addtask input {
+  width: 40%;
+  height: 30px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+}
+
+.addtask button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.addtask button:hover {
+  background-color: #3e8e41;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.task h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.task p {
+  font-size: 16px;
+  color: #666;
+}
+
+.task button {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.task button:hover {
+  background-color: #c0392b;
+}
