@@ -19,6 +19,7 @@
   padding: 10px;
   margin: 10px;
   border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .addtask button {
@@ -70,4 +71,24 @@
 
 .task button:hover {
   background-color: #c0392b;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.form input {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.form button {
+	margin: 0 auto;
+	width: 50%;
+}
+
+#login {
+	background-color: navy;
 }

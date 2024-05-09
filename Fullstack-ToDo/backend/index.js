@@ -18,6 +18,14 @@ app.get('/', (req, res)=> {
 	res.json('Hello this is the backend!');
 });
 
+app.get('/users', (req, res)=> {
+	const q = 'SELECT * FROM users';
+	db.query(q, (err, data)=>{
+		if(err) return res.json(err);
+		return res.json(data);
+	});
+});
+
 app.get('/tasks', (req, res)=> {
 	const q = 'SELECT * FROM tasks'
 	db.query(q, (err, data)=>{
