@@ -35,10 +35,10 @@ app.get('/tasks', (req, res)=> {
 });
 
 app.post('/tasks', (req, res)=>{
-	const q = "INSERT INTO tasks (`id`, `title`, `description`) VALUES (?)"
-	const values = [req.body.id, req.body.title, req.body.description,];
+	const q = "INSERT INTO tasks (`id`) VALUES (?)"
+	const id = req.body.id;
 	
-	db.query(q, [values], (err, data)=>{
+	db.query(q, [id], (err, data)=>{
 		if(err) return res.json(err);
 		return res.json(data);
 	});
@@ -51,6 +51,21 @@ app.delete('/tasks/:id', (req, res)=>{
 	db.query(q, [id], (err, data)=>{
 		if(err) return res.json(err);
 		return res.json('Task deleted successfully');
+	});
+});
+
+app.put('/tasks/:id', (req, res)=>{
+	const id = req.params.id;
+	const q = 'UPDATE tasks SET `title` = ?, `description` = ? WHERE id = ?'
+	
+	const values=[
+		req.body.title,
+		req.body.description,
+	]
+	
+	db.query(q, [...values, id], (err, data) => {
+		if (err) return res.json(err);
+		return res.json(data);
 	});
 });
 

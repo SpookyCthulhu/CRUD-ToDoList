@@ -42,6 +42,8 @@
 }
 
 .task {
+	display: flex;
+	flex-direction: column;
   background-color: #fff;
   padding: 20px;
   margin-bottom: 20px;
@@ -61,6 +63,8 @@
 }
 
 .task button {
+	width: auto;
+	margin: 0 auto;
   background-color: #e74c3c;
   color: #fff;
   padding: 10px 20px;
@@ -91,4 +95,19 @@
 
 #login {
 	background-color: navy;
+}
+
+.cardtxt {
+	font-size: 1em;
+	margin-bottom: 10px;
+	color: #666;
+	border: none;
+	text-align: center;
+	background-color: inherit;
+}
+
+.bold {
+	color: black;
+	font-size: 1.5em;
+	font-weight: bold;
 }

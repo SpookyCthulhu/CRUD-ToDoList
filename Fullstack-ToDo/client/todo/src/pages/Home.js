@@ -4,8 +4,6 @@ import Task from './components/Task';
 
 function Home() {
 	const [tasks, setTasks] = useState([]);
-	const [title, setTitle] = useState([]);
-	const [description, setDesc] = useState([]);
 	
 	useEffect(()=>{
 		const fetchAllBooks = async () => {
@@ -38,14 +36,13 @@ function Home() {
 	const addTask = () => {
 		const task = {
 			id: tasks.length === 0 ? 1 : tasks[tasks.length-1].id + 1,
-			title: title,
-			description: description
+			title: '',
+			description: ''
 		};
 		// Sends taask to DB
 		dbAdd(task);
 		// Adds task to React tasks list.
 		setTasks([...tasks, task]);
-		console.log(setTasks);
 	};
 	
 	const handleDelete = (id) => {
@@ -56,8 +53,6 @@ function Home() {
 	  return (
 	  <div className='app'>
 	  	<div className='addtask'>
-	  		<input onChange={e => setTitle(e.target.value)} placeholder="title"/>
-	  		<input onChange={e => setDesc(e.target.value)} placeholder="description"/>
 	  		<button onClick={addTask} > Add Task </button>
 	  	</div>
 			<div className='list'>
