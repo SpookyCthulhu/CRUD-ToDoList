@@ -10,22 +10,23 @@ function Task (props) {
 	};
 	
 	const handleDesc = (e) => {
-		setDesc(e.target.value);
+		let desc = e.target
+		setDesc(desc.value);
+		desc.style.height = 0;
+		desc.style.height = `${e.target.scrollHeight}px`;
 	};
 	
 	useEffect(() => {
 		update();
 	}, [title, description]);
 	
+	
 	const update = async () => {
-		console.log(title);
-		console.log(title.length);
 		// ensures user doesn't have to write both a title and description to save the task
 		let task = {
 			title: title.length > 0 ? title : '',
 			description: description.length > 0 ? description : ''
 		};
-		console.log(task);
 		try{
 			await axios.put('http://localhost:8800/tasks/'+props.id, task);
 		} catch(err) {
@@ -35,8 +36,9 @@ function Task (props) {
 	
 	return (
 		<div className='task'>
+			<h1>{props.id}</h1>
 			<input className='cardtxt bold' value={title} onChange={handleTitle} placeholder='Title...'/>
-			<textarea className='cardtxt' value={description} onChange={handleDesc} placeholder='Description...'/>
+			<textarea className='cardtxt desc' value={description} onChange={handleDesc} placeholder='Description...'/>
 			<button onClick={() => props.deleteTask(props.id)}>Delete</button>
 		</div>
 	);

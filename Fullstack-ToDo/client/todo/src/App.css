@@ -106,8 +106,18 @@
 	background-color: inherit;
 }
 
+.desc {
+	height: 5em;
+	border: none;
+	resize: none;
+}
+
 .bold {
 	color: black;
 	font-size: 1.5em;
 	font-weight: bold;
+}
+
+#addbtn {
+
 }

@@ -17,6 +17,10 @@ function Home() {
 		fetchAllBooks()
 	}, []);
 	
+	useEffect(()=>{
+		
+	}, [tasks]);
+	
 	const dbAdd = async (task) => {
 		try{
 			await axios.post('http://localhost:8800/tasks', task);
@@ -35,7 +39,8 @@ function Home() {
 	
 	const addTask = () => {
 		const task = {
-			id: tasks.length === 0 ? 1 : tasks[tasks.length-1].id + 1,
+			// Unique keys accurate to the millisecond, should work for an individual users database.
+			id: Date.now().toString(36),
 			title: '',
 			description: ''
 		};
@@ -52,13 +57,11 @@ function Home() {
 	
 	  return (
 	  <div className='app'>
-	  	<div className='addtask'>
-	  		<button onClick={addTask} > Add Task </button>
-	  	</div>
 			<div className='list'>
 				{tasks.map(task => {
 					return (
 						<Task
+							key={task.id}
 							id={task.id}
 							title={task.title}
 							description={task.description}
@@ -67,6 +70,9 @@ function Home() {
 					);
 				})}
 			</div>
+			<div className='addtask'>
+	  		<button id='addbtn' onClick={addTask} >Add Task</button>
+	  	</div>
 		</div>
   );
 };
